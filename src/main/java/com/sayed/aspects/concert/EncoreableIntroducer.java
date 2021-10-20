@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class EncoreableIntroducer {
 
-    @DeclareParents(value = "concert.Performance+",
+    @DeclareParents(value = "com.sayed.aspects.concert.Performance+",
             defaultImpl = DefaultEncoreable.class)
     public static Encoreable encoreable;
 }
