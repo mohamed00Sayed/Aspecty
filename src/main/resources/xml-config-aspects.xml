@@ -12,7 +12,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     
-    <context:component-scan base-package="concert" />
+    <context:component-scan base-package="com.sayed.aspects.concert" />
     <aop:aspectj-autoproxy />
     <bean id ="audience" class="com.sayed.aspects.concert.Audience" />
     <bean id="encoreableDelegate"
@@ -42,7 +42,7 @@
         <aop:aspect ref="audience">
             <aop:pointcut
                 id="performance"
-                expression="execution(** concert.Performance.perform(..))" />
+                expression="execution(** com.sayed.aspects.concert.Performance.perform(..))" />
             <aop:around
                 pointcut-ref="performance"
                 method="watchPerformance"/>
@@ -58,8 +58,8 @@
         -->
         <aop:aspect>
             <aop:declare-parents
-                types-matching="concert.Performance+"
-                implement-interface="concert.Encoreable"
+                types-matching="com.sayed.aspects.concert.Performance+"
+                implement-interface="com.sayed.aspects.concert.Encoreable"
                 delegate-ref="encoreableDelegate"/>
         </aop:aspect>
     </aop:config>
